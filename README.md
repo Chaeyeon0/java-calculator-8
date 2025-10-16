@@ -80,11 +80,33 @@ src/main/java/
 
 ### 구현 흐름
 
-1. `Application`에서 문자열 입력을 받는다.
-2. `StringCalculator`가 전체 흐름을 제어한다.
-3. `ExpressionParser`가 문자열을 분석해 구분자와 숫자 리스트를 만든다.
-4. `PositiveNumbers`가 숫자 유효성을 검증하고 합계를 계산한다.
-5. 최종 결과를 콘솔에 출력한다.
+1. **`Application`**
+    - 프로그램의 시작점으로, `CalculatorController`를 실행한다.
+2. **`CalculatorController`**
+    - 전체 흐름을 제어하는 역할을 담당한다.
+    - 입력을 `InputView`에서 받아, `StringCalculator`에 전달하고
+        
+        계산 결과를 `OutputView`를 통해 출력한다.
+        
+3. **`InputView`**
+    - 콘솔에서 문자열 입력을 받는다.
+4. **`StringCalculator` (Domain)**
+    - 프로그램의 핵심 로직을 담당한다.
+    - 입력 문자열을 `ExpressionParser`로 넘겨 숫자 리스트를 받고,
+        
+        `PositiveNumbers`를 통해 유효성 검증 및 합산을 수행한다.
+        
+5. **`ExpressionParser` (Domain)**
+    - 문자열을 분석하여
+        - 커스텀 구분자가 있는지 확인하고,
+        - 구분자에 따라 숫자 문자열을 분리한 뒤,
+        - 숫자 리스트를 반환한다.
+6. **`PositiveNumbers` (Domain)**
+    - 숫자 리스트의 각 원소가 양수인지, 숫자인지 검증한다.
+    - 유효하지 않은 값(음수, 문자)이 포함되어 있으면 예외를 발생시킨다.
+    - 검증된 숫자들의 합계를 계산해 반환한다.
+7. **`OutputView`**
+    - 계산 결과 또는 예외 메시지를 콘솔에 출력한다.
 
 ---
 
