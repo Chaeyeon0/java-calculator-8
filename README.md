@@ -13,11 +13,16 @@
 ```
 src/main/java/
 └── calculator
-    ├── Application.java          // 프로그램 실행 및 입출력 담당
+    ├── Application.java             // 프로그램 실행 진입점
+    ├── controller
+    │   └── CalculatorController.java  // 전체 흐름 제어
+    ├── view
+    │   ├── InputView.java             // 사용자 입력 담당
+    │   └── OutputView.java            // 결과 출력 담당
     └── domain
-        ├── StringCalculator.java // 계산기 로직의 중심 (전체 흐름 조율)
-        ├── ExpressionParser.java // 문자열 분석 및 구분자/숫자 분리 담당
-        └── PositiveNumbers.java  // 숫자 변환, 유효성 검증, 합산
+        ├── StringCalculator.java      // 계산기 핵심 로직 (파서 호출 및 합산)
+        ├── ExpressionParser.java      // 문자열에서 구분자와 숫자 분리
+        └── PositiveNumbers.java       // 숫자 유효성 검증 및 합산 수행
 
 ```
 
