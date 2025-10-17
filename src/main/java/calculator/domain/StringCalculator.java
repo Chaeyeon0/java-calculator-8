@@ -5,12 +5,13 @@ public class StringCalculator {
     public int add(String inputLine) {
         int sum = 0;
 
-        if(inputLine != null) {
-            String[] numbers = inputLine.split("[,:]");
-            for(String numberstr : numbers) {
-                sum += Integer.parseInt(numberstr.trim());
-            }
+        if (inputLine == null || inputLine.isEmpty()) {
+
+            return 0;
         }
-        return sum;
+
+        String[] numbers = inputLine.split("[,:]");
+        PositiveNumbers positiveNumbers = new PositiveNumbers(numbers);
+        return positiveNumbers.sum();
     }
 }
