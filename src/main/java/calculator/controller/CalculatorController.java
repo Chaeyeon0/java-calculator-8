@@ -3,6 +3,7 @@ package calculator.controller;
 import calculator.domain.StringCalculator;
 import calculator.view.InputView;
 import calculator.view.OutputView;
+import camp.nextstep.edu.missionutils.Console;
 
 public class CalculatorController {
 
@@ -16,5 +17,6 @@ public class CalculatorController {
         } catch (IllegalArgumentException e) {
             OutputView.printError(e.getMessage());
         }
+        Console.close();
     }
 }
