@@ -9,8 +9,8 @@ public class ExpressionParser {
     private static final String DEFAULT_DELIMITER = "[,:]";
 
     // 커스텀 구분자 패턴
-    private static final Pattern CUSTOM_DELIMITER
-           = Pattern.compile("//(.+)\n(.*)");
+    private static final Pattern CUSTOM_DELIMITER =
+            Pattern.compile("//(.+)\n(.*)");
 
     public String[] parse(String input) {
         if (input == null || input.isEmpty()) {
