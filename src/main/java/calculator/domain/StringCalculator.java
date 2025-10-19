@@ -6,6 +6,10 @@ public class StringCalculator {
 
     public int add(String inputLine) {
 
+        if (inputLine == null || inputLine.isEmpty()) {
+            return 0;
+        }
+
         String[] numbers = parser.parse(inputLine);
         PositiveNumbers positiveNumbers = new PositiveNumbers(numbers);
         return positiveNumbers.sum();
