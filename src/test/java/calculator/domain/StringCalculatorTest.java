@@ -46,4 +46,11 @@ class StringCalculatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("숫자가 아닌 값이 포함되어 있습니다");
     }
+
+    @Test
+    @DisplayName("여러 글자 커스텀 구분자(***)를 사용한 문자열을 올바르게 분리한다")
+    void parse_with_multi_char_custom_delimiter() {
+        int result = calculator.add("//***\n1***2***3");
+        assertThat(result).isEqualTo(6);
+    }
 }
