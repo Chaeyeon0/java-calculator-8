@@ -8,19 +8,19 @@ public class PositiveNumbers {
     private final List<Integer> numbers;
 
     public PositiveNumbers(String[] stringNumbers) {
-        List<Integer> paresdNumbers = parseAndValidate(stringNumbers);
-        this.numbers = new ArrayList<>(paresdNumbers);
+        List<Integer> parsedNumbers = parseAndValidate(stringNumbers);
+        this.numbers = new ArrayList<>(parsedNumbers);
     }
 
     private List<Integer> parseAndValidate(String[] stringNumbers) {
-        List<Integer> tempnumbers = new ArrayList<>();
+        List<Integer> tempNumbers = new ArrayList<>();
 
         for (String numberStr : stringNumbers) {
             int number = parseToInt(numberStr);
             validateIsPositive(number);
-            tempnumbers.add(number);
+            tempNumbers.add(number);
         }
-        return tempnumbers;
+        return tempNumbers;
     }
 
     private int parseToInt(String numberStr) {
