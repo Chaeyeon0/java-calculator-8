@@ -10,7 +10,7 @@ public class ExpressionParser {
 
     // 커스텀 구분자 패턴
     private static final Pattern CUSTOM_DELIMITER =
-            Pattern.compile("//(.+)\n(.*)");
+            Pattern.compile("//(.+)(?:\\\\n|\n)(.*)");
 
     public String[] parse(String input) {
         if (input == null || input.isEmpty()) {
