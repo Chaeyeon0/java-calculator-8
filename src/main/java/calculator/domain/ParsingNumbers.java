@@ -3,11 +3,11 @@ package calculator.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PositiveNumbers {
+public class ParsingNumbers {
 
     private final List<Integer> numbers;
 
-    public PositiveNumbers(String[] stringNumbers) {
+    public ParsingNumbers(String[] stringNumbers) {
         List<Integer> parsedNumbers = parseAndValidate(stringNumbers);
         this.numbers = new ArrayList<>(parsedNumbers);
     }
