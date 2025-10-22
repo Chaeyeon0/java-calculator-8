@@ -3,7 +3,7 @@ package calculator.domain;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ExpressionParser {
+public class DelimitedNumberParser {
 
     // 기본 구분자: 쉼표, 콜론
     private static final String DEFAULT_DELIMITER = "[,:]";

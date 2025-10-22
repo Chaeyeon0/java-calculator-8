@@ -2,7 +2,7 @@ package calculator.domain;
 
 public class StringCalculator {
 
-    private final ExpressionParser parser = new ExpressionParser();
+    private final DelimitedNumberParser parser = new DelimitedNumberParser();
 
     public int add(String inputLine) {
 

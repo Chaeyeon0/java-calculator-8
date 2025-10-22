@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class ExpressionParserTest {
+class DelimitedNumberParserTest {
 
-    private final ExpressionParser parser = new ExpressionParser();
+    private final DelimitedNumberParser parser = new DelimitedNumberParser();
 
     @Test
     @DisplayName("커스텀 구분자가 포함된 문자열을 올바르게 분리한다")
