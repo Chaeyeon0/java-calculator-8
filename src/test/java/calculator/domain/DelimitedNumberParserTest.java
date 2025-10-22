@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 class DelimitedNumberParserTest {
 
@@ -30,5 +31,22 @@ class DelimitedNumberParserTest {
     void parse_with_null_or_empty_input() {
         assertThat(parser.parse(null)).isEmpty();
         assertThat(parser.parse("")).isEmpty();
+    }
+
+    @Test
+    @DisplayName("커스텀 구분자가 숫자일 경우 예외가 발생한다")
+    void throw_when_custom_delimiter_is_number() {
+        String input = "//1\n1,2,3";
+        assertThatThrownBy(() -> parser.parse(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자를 사용할 수 없습니다");
+    }
+
+    @Test
+    @DisplayName("두 글자 이상의 커스텀 구분자도 올바르게 동작한다")
+    void parse_with_multi_char_custom_delimiter() {
+        String input = "//;;\n1;;2;;3";
+        String[] result = parser.parse(input);
+        assertThat(result).containsExactly("1", "2", "3");
     }
 }
