@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class DelimitedNumberParser {
 
     // 기본 구분자: 쉼표, 콜론
-    private static final String DEFAULT_DELIMITER = "[,:]";
+    private static final String DEFAULT_DELIMITER = ",:";
 
     // 커스텀 구분자 패턴
     private static final Pattern CUSTOM_DELIMITER =
@@ -22,10 +22,13 @@ public class DelimitedNumberParser {
         if (matcher.find()) {
             String customDelimiter = matcher.group(1); // //와 \n 사이 문자
             String numbers = matcher.group(2);         // 숫자 문자열
-            return numbers.split(Pattern.quote(customDelimiter));
+
+            // 기본 구분자 + 커스텀 구분자를 함께 사용
+            String combinedDelimiters = "[" + DEFAULT_DELIMITER + Pattern.quote(customDelimiter) + "]";
+            return numbers.split(combinedDelimiters);
         }
 
-        // 기본 구분자 처리
-        return input.split(DEFAULT_DELIMITER);
+        // 커스텀 구분자 없는 경우 기본 구분자만 사용
+        return input.split("[" + DEFAULT_DELIMITER + "]");
     }
 }
